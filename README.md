@@ -65,3 +65,6 @@ The different levels have a lot in common, as what changes is only the complexit
  * Test and tune the game
  * Auto generate funny names/remarks for dishes completed based on toxicity
  * Stretch Goal: Add different backgrounds for the kitchen
+
+## Background Art Credits
+http://fernandojl.deviantart.com/art/Background-Kitchen-308233091
