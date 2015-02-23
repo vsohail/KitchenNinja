@@ -47,6 +47,8 @@
 		7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F721A9ACF5400B87127 /* Banana.m */; };
 		7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F751A9AD13300B87127 /* Strawberry.m */; };
 		7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F781A9AD14700B87127 /* Pineapple.m */; };
+		7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F7B1A9B06F300B87127 /* Shoe.m */; };
+		7BDE9F7F1A9B06FC00B87127 /* Sock.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F7E1A9B06FC00B87127 /* Sock.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		927F619E196C771E000F43EF /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
@@ -182,6 +184,10 @@
 		7BDE9F751A9AD13300B87127 /* Strawberry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strawberry.m; sourceTree = "<group>"; };
 		7BDE9F771A9AD14700B87127 /* Pineapple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pineapple.h; sourceTree = "<group>"; };
 		7BDE9F781A9AD14700B87127 /* Pineapple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pineapple.m; sourceTree = "<group>"; };
+		7BDE9F7A1A9B06F300B87127 /* Shoe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoe.h; sourceTree = "<group>"; };
+		7BDE9F7B1A9B06F300B87127 /* Shoe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shoe.m; sourceTree = "<group>"; };
+		7BDE9F7D1A9B06FC00B87127 /* Sock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sock.h; sourceTree = "<group>"; };
+		7BDE9F7E1A9B06FC00B87127 /* Sock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sock.m; sourceTree = "<group>"; };
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		927F61BF196C771E000F43EF /* KitchenNinja Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KitchenNinja Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -454,6 +460,10 @@
 				D352B48019EC608A00829775 /* MetalShaders */,
 				7BDE9F691A9AB7D600B87127 /* Gameplay.h */,
 				7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */,
+				7BDE9F7A1A9B06F300B87127 /* Shoe.h */,
+				7BDE9F7B1A9B06F300B87127 /* Shoe.m */,
+				7BDE9F7D1A9B06FC00B87127 /* Sock.h */,
+				7BDE9F7E1A9B06FC00B87127 /* Sock.m */,
 				7BDE9F741A9AD13300B87127 /* Strawberry.h */,
 				7BDE9F751A9AD13300B87127 /* Strawberry.m */,
 				7BDE9F711A9ACF5400B87127 /* Banana.h */,
@@ -836,8 +846,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */,
 				7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				7BDE9F7F1A9B06FC00B87127 /* Sock.m in Sources */,
 				7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */,
 				7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */,
 				7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */,

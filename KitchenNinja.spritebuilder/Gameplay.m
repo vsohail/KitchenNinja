@@ -18,6 +18,7 @@
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSArray *_ingredientList;
+    NSArray *_toxicIngredientList;
 }
 
 - (void)didLoadFromCCB {
@@ -27,6 +28,7 @@
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
     _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", nil];
+    _toxicIngredientList = [[NSArray alloc] initWithObjects:@"Shoe", @"Sock", nil];
 }
 
 - (void)update:(CCTime)delta {
@@ -53,7 +55,14 @@
 }
 
 - (void)launchIngredient {
-    CCNode* ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
+    int toxic = arc4random() % 2;
+    CCNode* ingredient;
+    if (toxic) {
+        ingredient = [CCBReader load:_toxicIngredientList[arc4random() % [_toxicIngredientList count]]];
+    } else {
+        ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
+    }
+
     ingredient.position = ccpAdd(ccp(0, _conveyer1.position.y) ,ccp(0, 0));
 
     [_physicsNode addChild:ingredient];
