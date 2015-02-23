@@ -14,13 +14,15 @@
     CCNode *_conveyer2;
     NSArray *_conveyers;
     int _speed;
+    int _force;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSArray *_ingredientList;
 }
 
 - (void)didLoadFromCCB {
-    _speed = 1;
+    _speed = 3;
+    _force = 20000;
     _timeInterval = 0.0f;
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
@@ -36,12 +38,12 @@
     }
 
     for (CCNode *conveyer in _conveyers) {
-        conveyer.position = ccp(conveyer.position.x - _speed, conveyer.position.y);
+        conveyer.position = ccp(conveyer.position.x + _speed, conveyer.position.y);
 
         // if the left corner is one complete width off the screen,
         // move it to the right
-        if (conveyer.position.x <= (-1 * (conveyer.contentSize.width * CONVEYER_SCLAE))) {
-            conveyer.position = ccp(conveyer.position.x +
+        if (conveyer.position.x >= (conveyer.contentSize.width * CONVEYER_SCLAE)) {
+            conveyer.position = ccp(conveyer.position.x -
                                  2 * (conveyer.contentSize.width * CONVEYER_SCLAE), conveyer.position.y);
         }
     }
@@ -52,12 +54,12 @@
 
 - (void)launchIngredient {
     CCNode* ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
-    ingredient.position = ccpAdd(ccp(0, 72) ,ccp(0, 0));
+    ingredient.position = ccpAdd(ccp(0, _conveyer1.position.y) ,ccp(0, 0));
 
     [_physicsNode addChild:ingredient];
 
     CGPoint launchDirection = ccp(1, 0);
-    CGPoint force = ccpMult(launchDirection, 15000);
+    CGPoint force = ccpMult(launchDirection, _force);
     [ingredient.physicsBody applyForce:force];
 }
 
