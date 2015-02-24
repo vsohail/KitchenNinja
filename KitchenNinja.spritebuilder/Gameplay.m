@@ -52,6 +52,13 @@
 }
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    @try
+    {
+        [super touchBegan:touch withEvent:event];
+    }
+    @catch(NSException* ex)
+    {
+    }
 }
 
 - (void)launchIngredient {
