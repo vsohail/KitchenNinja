@@ -12,6 +12,8 @@
 @implementation Gameplay {
     CCNode *_conveyer1;
     CCNode *_conveyer2;
+    CCSprite *_knife;
+    id _rotate, _sequence;
     NSArray *_conveyers;
     int _speed;
     int _force;
@@ -29,6 +31,8 @@
     self.userInteractionEnabled = TRUE;
     _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", nil];
     _toxicIngredientList = [[NSArray alloc] initWithObjects:@"Shoe", @"Sock", nil];
+    _rotate = [CCActionRotateBy actionWithDuration:0.05f angle:-45];
+    _sequence = [CCActionSequence actionWithArray:@[_rotate, [[_rotate copy] reverse]]];
 }
 
 - (void)update:(CCTime)delta {
@@ -55,6 +59,9 @@
     @try
     {
         [super touchBegan:touch withEvent:event];
+        if([_knife numberOfRunningActions] == 0) {
+            [_knife runAction:[_sequence copy]];
+        }
     }
     @catch(NSException* ex)
     {

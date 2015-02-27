@@ -43,6 +43,7 @@
 		7A97910819E62F84001FFC4D /* libcocos2dAndroid.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910019E62E40001FFC4D /* libcocos2dAndroid.a */; };
 		7A97911719E631C6001FFC4D /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910419E62E40001FFC4D /* libcocos2d-mac.a */; };
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
+		7B057B031A9FF8C300118317 /* Knife.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B057B021A9FF8C200118317 /* Knife.m */; };
 		7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */; };
 		7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F721A9ACF5400B87127 /* Banana.m */; };
 		7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F751A9AD13300B87127 /* Strawberry.m */; };
@@ -176,6 +177,8 @@
 		7A59498A19E38E4A00F65F90 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainMenu.xib; path = Platforms/Mac/MainMenu.xib; sourceTree = "<group>"; };
 		7AFCD5DB19E9BD9F00BCCCDA /* cocos2d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cocos2d.h; path = "Source/libs/cocos2d-iphone/cocos2d/cocos2d.h"; sourceTree = "<group>"; };
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
+		7B057B011A9FF8C200118317 /* Knife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knife.h; sourceTree = "<group>"; };
+		7B057B021A9FF8C200118317 /* Knife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knife.m; sourceTree = "<group>"; };
 		7BDE9F691A9AB7D600B87127 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
 		7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameplay.m; sourceTree = "<group>"; };
 		7BDE9F711A9ACF5400B87127 /* Banana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banana.h; sourceTree = "<group>"; };
@@ -454,6 +457,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7B057B011A9FF8C200118317 /* Knife.h */,
+				7B057B021A9FF8C200118317 /* Knife.m */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
@@ -855,6 +860,7 @@
 				7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				7B057B031A9FF8C300118317 /* Knife.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
