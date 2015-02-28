@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-#import "CCSprite.h"
+#import "Ingredient.h"
 
-@interface Pineapple : CCSprite
+@interface Pineapple : Ingredient
 
 @end

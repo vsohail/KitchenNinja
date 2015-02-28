@@ -7,9 +7,13 @@
 //
 
 #import "Gameplay.h"
+#import "Knife.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
 #define CONVEYER_SCLAE 1.56
 
 @implementation Gameplay {
+    CCLabelTTF *_toxicityLabel;
+    CCLabelTTF *_completenessLabel;
     CCNode *_conveyer1;
     CCNode *_conveyer2;
     CCSprite *_knife;
@@ -17,30 +21,52 @@
     NSArray *_conveyers;
     int _speed;
     int _force;
+    int _toxicity;
+    int _completeness;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
+    NSMutableArray *_allIngredients;
     NSArray *_ingredientList;
     NSArray *_toxicIngredientList;
+    CGSize _screenSize;
 }
 
 - (void)didLoadFromCCB {
     _speed = 3;
     _force = 20000;
     _timeInterval = 0.0f;
+    _toxicity = 0;
+    _completeness = 0;
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
+    _allIngredients = [[NSMutableArray alloc] init];
     _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", nil];
     _toxicIngredientList = [[NSArray alloc] initWithObjects:@"Shoe", @"Sock", nil];
     _rotate = [CCActionRotateBy actionWithDuration:0.05f angle:-45];
     _sequence = [CCActionSequence actionWithArray:@[_rotate, [[_rotate copy] reverse]]];
+    [_physicsNode setCollisionDelegate:self];
+    _screenSize = [[CCDirector sharedDirector] viewSize];
 }
 
 - (void)update:(CCTime)delta {
     _timeInterval += delta;
 
     if (_timeInterval > 0.5f) {
-        [self launchIngredient];
+        [_allIngredients addObject:[self launchIngredient]];
         _timeInterval = 0.0f;
+    }
+
+    NSMutableArray *escapedIngredients = [[NSMutableArray alloc] init];
+    for (CCNode *ingredient in _allIngredients) {
+        if (ingredient.position.x > _screenSize.width || ingredient.position.y > _screenSize.height ||
+            ingredient.position.x < 0 || ingredient.position.y < 0) {
+            [ingredient removeFromParent];
+            [escapedIngredients addObject:ingredient];
+        }
+    }
+
+    for (CCNode *ingredient in escapedIngredients) {
+        [_allIngredients removeObject:ingredient];
     }
 
     for (CCNode *conveyer in _conveyers) {
@@ -68,7 +94,7 @@
     }
 }
 
-- (void)launchIngredient {
+- (CCNode *)launchIngredient {
     int toxic = arc4random() % 2;
     CCNode* ingredient;
     if (toxic) {
@@ -84,6 +110,25 @@
     CGPoint launchDirection = ccp(1, 0);
     CGPoint force = ccpMult(launchDirection, _force);
     [ingredient.physicsBody applyForce:force];
+    return ingredient;
+}
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair toxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    if ([nodeB class] == [Knife class]) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [nodeA removeFromParent];
+            [_toxicityLabel setString:[NSString stringWithFormat:@"%d", ++_toxicity]];
+        } key:nodeA];
+    }
+}
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair nonToxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    if ([nodeB class] == [Knife class]) {
+        [[_physicsNode space] addPostStepBlock:^{
+            [nodeA removeFromParent];
+            [_completenessLabel setString:[NSString stringWithFormat:@"%d", ++_completeness]];
+        } key:nodeA];
+    }
 }
 
 @end
