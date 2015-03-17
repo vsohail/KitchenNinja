@@ -50,6 +50,8 @@ The different levels have a lot in common, as what changes is only the complexit
  * Complete player(Chef)
  * Left/right machete controls with sound
  * Start working on Conveyer belt mechanics
+ * (PM notes by Harshit) Fix conveyer belt animation nit for faster
+   levels
 * Week 3 (3/3 - 3/10/2015)
  * Design Ingredient sprite.
  * Start working on game logic
