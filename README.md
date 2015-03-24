@@ -55,6 +55,8 @@ The different levels have a lot in common, as what changes is only the complexit
 * Week 3 (3/3 - 3/10/2015)
  * Design Ingredient sprite.
  * Start working on game logic
+ * (PM notes by Harshit) When knife hits an object partially, results in
+   multiple objects being sent off track. Needs a fix of some sort
 * Week 4 (3/10 - 3/17/2015)
  * Start working on initial level
  * Tune controls on left/right machete with respect to ingredients
