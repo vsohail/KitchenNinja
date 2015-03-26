@@ -14,6 +14,7 @@
 @implementation Gameplay {
     CCLabelTTF *_toxicityLabel;
     CCLabelTTF *_completenessLabel;
+    CCLabelTTF *_timerLabel;
     CCNode *_conveyer1;
     CCNode *_conveyer2;
     CCSprite *_knife;
@@ -23,15 +24,18 @@
     int _force;
     int _toxicity;
     int _completeness;
+    int _timer;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSMutableArray *_allIngredients;
     NSArray *_ingredientList;
     NSArray *_toxicIngredientList;
     CGSize _screenSize;
+    SEL _incrementSelector;
 }
 
 - (void)didLoadFromCCB {
+    _timer = 10;
     _speed = 3;
     _force = 20000;
     _timeInterval = 0.0f;
@@ -45,11 +49,23 @@
     _rotate = [CCActionRotateBy actionWithDuration:0.05f angle:-45];
     _sequence = [CCActionSequence actionWithArray:@[_rotate, [[_rotate copy] reverse]]];
     [_physicsNode setCollisionDelegate:self];
+    _incrementSelector = @selector(increment);
+    [self schedule:_incrementSelector interval:1.0];
     _screenSize = [[CCDirector sharedDirector] viewSize];
+    [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
+}
+
+- (void)increment {
+    [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer--]];
 }
 
 - (void)update:(CCTime)delta {
     _timeInterval += delta;
+
+    if (_timer == 0) {
+        [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
+        [self unschedule:_incrementSelector];
+    }
 
     if (_timeInterval > 0.5f) {
         [_allIngredients addObject:[self launchIngredient]];
