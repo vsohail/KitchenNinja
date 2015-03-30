@@ -60,11 +60,14 @@
 }
 
 - (void)update:(CCTime)delta {
+    static int flag = 1;
     _timeInterval += delta;
 
-    if (_timer == 0) {
+    if (_timer == 0 && flag == 1) {
         [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
         [self unschedule:_incrementSelector];
+        flag = 0;
+        [self setPaused:TRUE];
     }
 
     if (_timeInterval > 0.5f) {
