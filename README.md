@@ -65,6 +65,7 @@ The different levels have a lot in common, as what changes is only the complexit
  * Work on level select screen
  * Add save progress functionality
  * Create a better scoring model
+ * (PM notes by Harshit) Create some kind of power ups, or other kind of items to make gameplay more interesting
 * Week 6 (3/24 - 3/31/2015)
  * Test and tune the game
  * Auto generate funny names/remarks for dishes completed based on toxicity
