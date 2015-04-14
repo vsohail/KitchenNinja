@@ -64,6 +64,7 @@ The different levels have a lot in common, as what changes is only the complexit
  * Work on level select screen
  * Create a better scoring model
  * (PM notes by Harshit) Create some kind of power ups, or other kind of items to make gameplay more interesting
+ * (PM notes by Harshit) Could add some animations for combos etc
 * Week 6
  * Test and tune the game
  * Auto generate funny names/remarks for dishes completed based on toxicity
