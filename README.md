@@ -43,30 +43,28 @@ The different levels have a lot in common, as what changes is only the complexit
 
 
 ## MVP Milestones (Tentative)
-* Week 1 (2/17 - 2/24/2015)
+* Week 1
  * Implement Menus and Scenes
  * Start working on player(Chef)
-* Week 2 (2/24 - 3/3/2015)
+* Week 2
  * Complete player(Chef)
  * Left/right machete controls with sound
  * Start working on Conveyer belt mechanics
  * (PM notes by Harshit) Fix conveyer belt animation nit for faster levels
-* Week 3 (3/3 - 3/10/2015)
+* Week 3
  * Design Ingredient sprite.
  * Start working on game logic
  * (PM notes by Harshit) When knife hits an object partially, results in multiple objects being sent off track. Needs a fix of some sort
-* Week 4 (3/10 - 3/17/2015)
+* Week 4
  * Start working on initial level
  * Tune controls on left/right machete with respect to ingredients
- * Work on cooking pot animations
  * (PM notes by Harshit) Create some timing mechanism in game instead of inifinte levels
-* Week 5 (3/17 - 3/24/2015)
+* Week 5 (TODO) PM suggestion
  * Design extra levels
  * Work on level select screen
- * Add save progress functionality
  * Create a better scoring model
  * (PM notes by Harshit) Create some kind of power ups, or other kind of items to make gameplay more interesting
-* Week 6 (3/24 - 3/31/2015)
+* Week 6
  * Test and tune the game
  * Auto generate funny names/remarks for dishes completed based on toxicity
  * Stretch Goal: Add different backgrounds for the kitchen
