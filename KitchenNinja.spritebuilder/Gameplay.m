@@ -8,6 +8,7 @@
 
 #import "Gameplay.h"
 #import "Knife.h"
+#import "WinPopup.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #define CONVEYER_SCLAE 1.56
 
@@ -35,7 +36,7 @@
 }
 
 - (void)didLoadFromCCB {
-    _timer = 10;
+    _timer = 20;
     _speed = 3;
     _force = 20000;
     _timeInterval = 0.0f;
@@ -59,6 +60,15 @@
     [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer--]];
 }
 
+- (void)gameOver {
+    [self setPaused:TRUE];
+
+    WinPopup *popup = (WinPopup *)[CCBReader load:@"WinPopup" owner:self];
+    popup.positionType = CCPositionTypeNormalized;
+    popup.position = ccp(0.5, 0.5);
+    [self addChild:popup];
+}
+
 - (void)update:(CCTime)delta {
     static int flag = 1;
     _timeInterval += delta;
@@ -67,7 +77,7 @@
         [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
         [self unschedule:_incrementSelector];
         flag = 0;
-        [self setPaused:TRUE];
+        [self gameOver];
     }
 
     if (_timeInterval > 0.5f) {
@@ -136,7 +146,11 @@
     if ([nodeB class] == [Knife class]) {
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            [_toxicityLabel setString:[NSString stringWithFormat:@"%d", ++_toxicity]];
+            _toxicity += 10;
+            [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
+            if (_toxicity == 100) {
+                [self gameOver];
+            }
         } key:nodeA];
     }
 }
@@ -145,7 +159,11 @@
     if ([nodeB class] == [Knife class]) {
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            [_completenessLabel setString:[NSString stringWithFormat:@"%d", ++_completeness]];
+            _completeness += 10;
+            [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
+            if (_completeness == 100) {
+                [self gameOver];
+            }
         } key:nodeA];
     }
 }
