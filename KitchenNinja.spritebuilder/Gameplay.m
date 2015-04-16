@@ -10,6 +10,12 @@
 #import "Knife.h"
 #import "WinPopup.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
+#import "Time.h"
+#import "Fury.h"
+#import "Antidote.h"
+#import "Ingredient.h"
+#import "ToxicIngredient.h"
+#import "PowerUp.h"
 #define CONVEYER_SCLAE 1.56
 
 @implementation Gameplay {
@@ -26,31 +32,38 @@
     int _toxicity;
     int _completeness;
     int _timer;
+    int _fury;
+    int _scoreDelta;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSMutableArray *_allIngredients;
     NSArray *_ingredientList;
     NSArray *_toxicIngredientList;
+    NSMutableArray *_powerUpList;
     CGSize _screenSize;
     SEL _incrementSelector;
+    SEL _furySelector;
 }
 
 - (void)didLoadFromCCB {
-    _timer = 20;
+    _timer = 100;
     _speed = 3;
     _force = 20000;
     _timeInterval = 0.0f;
     _toxicity = 0;
     _completeness = 0;
+    _scoreDelta = 10;
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
     _allIngredients = [[NSMutableArray alloc] init];
     _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", nil];
     _toxicIngredientList = [[NSArray alloc] initWithObjects:@"Shoe", @"Sock", nil];
+    _powerUpList = [[NSMutableArray alloc] initWithObjects:@"Time", @"Fury", @"Antidote", nil];
     _rotate = [CCActionRotateBy actionWithDuration:0.05f angle:-45];
     _sequence = [CCActionSequence actionWithArray:@[_rotate, [[_rotate copy] reverse]]];
     [_physicsNode setCollisionDelegate:self];
     _incrementSelector = @selector(increment);
+    _furySelector = @selector(fury:);
     [self schedule:_incrementSelector interval:1.0];
     _screenSize = [[CCDirector sharedDirector] viewSize];
     [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
@@ -58,6 +71,10 @@
 
 - (void)increment {
     [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer--]];
+}
+
+- (void) fury:(CCTime)delta {
+    [_powerUpList addObject:@"Fury"];
 }
 
 - (void)gameOver {
@@ -124,12 +141,17 @@
 }
 
 - (CCNode *)launchIngredient {
+    int powerUp = arc4random() % 5;
     int toxic = arc4random() % 2;
     CCNode* ingredient;
-    if (toxic) {
-        ingredient = [CCBReader load:_toxicIngredientList[arc4random() % [_toxicIngredientList count]]];
+    if (powerUp > 0) {
+        if (toxic) {
+            ingredient = [CCBReader load:_toxicIngredientList[arc4random() % [_toxicIngredientList count]]];
+        } else {
+            ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
+        }
     } else {
-        ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
+        ingredient = [CCBReader load:_powerUpList[arc4random() % [_powerUpList count]]];
     }
 
     ingredient.position = ccpAdd(ccp(0, _conveyer1.position.y) ,ccp(0, 0));
@@ -144,14 +166,23 @@
 
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair toxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     if ([nodeB class] == [Knife class]) {
+        if ([_powerUpList containsObject:@"Fury"] == NO) {
+            return;
+        }
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            _toxicity += 10;
+            _toxicity += _scoreDelta;
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
             if (_toxicity == 100) {
                 [self gameOver];
             }
         } key:nodeA];
+    }
+    else if ([[nodeB class] isSubclassOfClass:[Ingredient class]] ||
+             [[nodeB class] isSubclassOfClass:[ToxicIngredient class]] ||
+             [[nodeB class] isSubclassOfClass:[PowerUp class]]) {
+        [nodeA removeFromParent];
+        [nodeB removeFromParent];
     }
 }
 
@@ -159,13 +190,55 @@
     if ([nodeB class] == [Knife class]) {
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            _completeness += 10;
+            _completeness += _scoreDelta;
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
             if (_completeness == 100) {
                 [self gameOver];
             }
         } key:nodeA];
     }
+    else if ([[nodeB class] isSubclassOfClass:[Ingredient class]] ||
+             [[nodeB class] isSubclassOfClass:[PowerUp class]]) {
+        [nodeA removeFromParent];
+        [nodeB removeFromParent];
+    }
+}
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair powerUp:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+    if ([nodeB class] == [Knife class]) {
+        [[_physicsNode space] addPostStepBlock:^{
+            if ([nodeA class] == [Fury class]) {
+                [self furyPowerUpAction];
+            } else if ([nodeA class] == [Antidote class]) {
+                [self antidotePowerUpAction];
+            } else if ([nodeA class] == [Time class]) {
+                [self timePowerUpAction];
+            }
+            [nodeA removeFromParent];
+        } key:nodeA];
+    }
+    else if ([[nodeB class] isSubclassOfClass:[PowerUp class]]) {
+        [nodeA removeFromParent];
+        [nodeB removeFromParent];
+    }
+}
+
+-(void)furyPowerUpAction {
+    [_powerUpList removeObject:@"Fury"];
+    [self scheduleOnce:_furySelector delay:5.0];
+}
+
+-(void)antidotePowerUpAction {
+    if (_toxicity != 0) {
+        _toxicity -= _scoreDelta;
+        [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
+    }
+
+}
+
+-(void)timePowerUpAction {
+    int time = (arc4random() % 4) + 1;
+    _timer += time;
 }
 
 @end

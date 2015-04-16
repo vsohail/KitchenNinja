@@ -54,6 +54,10 @@
 		7BE6C7021AA2617B008126CE /* ToxicIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE6C7011AA2617B008126CE /* ToxicIngredient.m */; };
 		7BE6C7051AA26384008126CE /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BE6C7041AA26384008126CE /* Ingredient.m */; };
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
+		91D88DBE1ADF9578005D3DCD /* PowerUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DBD1ADF9578005D3DCD /* PowerUp.m */; };
+		91D88DC31ADF95D5005D3DCD /* Fury.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DC21ADF95D5005D3DCD /* Fury.m */; };
+		91D88DC61ADF95E5005D3DCD /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DC51ADF95E5005D3DCD /* Time.m */; };
+		91D88DC91ADF9600005D3DCD /* Antidote.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DC81ADF9600005D3DCD /* Antidote.m */; };
 		927F619E196C771E000F43EF /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		927F61A5196C771E000F43EF /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
 		927F61A9196C771E000F43EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
@@ -202,6 +206,14 @@
 		7BE6C7041AA26384008126CE /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		7BF6AF9F1A425F9800FFF9BA /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../../../../Library/SBAndroid/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		8392007918EE8E3300B6C429 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		91D88DBC1ADF9578005D3DCD /* PowerUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUp.h; sourceTree = "<group>"; };
+		91D88DBD1ADF9578005D3DCD /* PowerUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUp.m; sourceTree = "<group>"; };
+		91D88DC11ADF95D5005D3DCD /* Fury.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fury.h; sourceTree = "<group>"; };
+		91D88DC21ADF95D5005D3DCD /* Fury.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fury.m; sourceTree = "<group>"; };
+		91D88DC41ADF95E5005D3DCD /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		91D88DC51ADF95E5005D3DCD /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
+		91D88DC71ADF9600005D3DCD /* Antidote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Antidote.h; sourceTree = "<group>"; };
+		91D88DC81ADF9600005D3DCD /* Antidote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Antidote.m; sourceTree = "<group>"; };
 		927F61BF196C771E000F43EF /* KitchenNinja Android.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KitchenNinja Android.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
@@ -474,6 +486,12 @@
 				D352B48019EC608A00829775 /* MetalShaders */,
 				7BDE9F691A9AB7D600B87127 /* Gameplay.h */,
 				7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */,
+				91D88DC11ADF95D5005D3DCD /* Fury.h */,
+				91D88DC21ADF95D5005D3DCD /* Fury.m */,
+				91D88DC41ADF95E5005D3DCD /* Time.h */,
+				91D88DC51ADF95E5005D3DCD /* Time.m */,
+				91D88DC71ADF9600005D3DCD /* Antidote.h */,
+				91D88DC81ADF9600005D3DCD /* Antidote.m */,
 				7BDE9F7A1A9B06F300B87127 /* Shoe.h */,
 				7BB6A1AE1AD86B1D001CF893 /* WinPopup.h */,
 				7BB6A1AF1AD86B1D001CF893 /* WinPopup.m */,
@@ -487,6 +505,8 @@
 				7BDE9F771A9AD14700B87127 /* Pineapple.h */,
 				7BDE9F781A9AD14700B87127 /* Pineapple.m */,
 				7BE6C7001AA2617B008126CE /* ToxicIngredient.h */,
+				91D88DBC1ADF9578005D3DCD /* PowerUp.h */,
+				91D88DBD1ADF9578005D3DCD /* PowerUp.m */,
 				7BE6C7011AA2617B008126CE /* ToxicIngredient.m */,
 				7BE6C7031AA26384008126CE /* Ingredient.h */,
 				7BE6C7041AA26384008126CE /* Ingredient.m */,
@@ -866,12 +886,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D88DC61ADF95E5005D3DCD /* Time.m in Sources */,
+				91D88DC31ADF95D5005D3DCD /* Fury.m in Sources */,
 				7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */,
 				7BE6C7021AA2617B008126CE /* ToxicIngredient.m in Sources */,
 				7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */,
+				91D88DC91ADF9600005D3DCD /* Antidote.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7BE6C7051AA26384008126CE /* Ingredient.m in Sources */,
 				7BB6A1B01AD86B1D001CF893 /* WinPopup.m in Sources */,
+				91D88DBE1ADF9578005D3DCD /* PowerUp.m in Sources */,
 				7BDE9F7F1A9B06FC00B87127 /* Sock.m in Sources */,
 				7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */,
 				7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */,
