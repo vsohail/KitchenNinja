@@ -48,7 +48,7 @@ The different levels have a lot in common, as what changes is only the complexit
  * Start working on player(Chef)
 * Week 2
  * Complete player(Chef)
- * Left/right machete controls with sound
+ * machete controls with sound
  * Start working on Conveyer belt mechanics
  * (PM notes by Harshit) Fix conveyer belt animation nit for faster levels
 * Week 3
@@ -57,7 +57,7 @@ The different levels have a lot in common, as what changes is only the complexit
  * (PM notes by Harshit) When knife hits an object partially, results in multiple objects being sent off track. Needs a fix of some sort
 * Week 4
  * Start working on initial level
- * Tune controls on left/right machete with respect to ingredients
+ * Tune controls of machete with respect to ingredients
  * (PM notes by Harshit) Create some timing mechanism in game instead of inifinte levels
 * Week 5 (TODO) PM suggestion
  * Design extra levels
@@ -67,8 +67,8 @@ The different levels have a lot in common, as what changes is only the complexit
  * (PM notes by Harshit) Could add some animations for combos etc
 * Week 6
  * Test and tune the game
- * Auto generate funny names/remarks for dishes completed based on toxicity
  * Stretch Goal: Add different backgrounds for the kitchen
+ * (PM notes by Harshit) Prepare for poster, add a way to navigate between levels and better animation for sprites
 
 ## Background Art Credits
 http://fernandojl.deviantart.com/art/Background-Kitchen-308233091
