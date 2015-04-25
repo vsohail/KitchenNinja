@@ -44,6 +44,7 @@
 		7A97911719E631C6001FFC4D /* libcocos2d-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A97910419E62E40001FFC4D /* libcocos2d-mac.a */; };
 		7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9790FE19E62E40001FFC4D /* libcocos2d.a */; };
 		7B057B031A9FF8C300118317 /* Knife.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B057B021A9FF8C200118317 /* Knife.m */; };
+		7B3106AD1AF0974D00D64889 /* Onion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3106AC1AF0974D00D64889 /* Onion.m */; };
 		7BB6A1B01AD86B1D001CF893 /* WinPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6A1AF1AD86B1D001CF893 /* WinPopup.m */; };
 		7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */; };
 		7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F721A9ACF5400B87127 /* Banana.m */; };
@@ -186,6 +187,8 @@
 		7AFCD5DD19E9BDC200BCCCDA /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Source/Bridging-Header.h"; sourceTree = "<group>"; };
 		7B057B011A9FF8C200118317 /* Knife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Knife.h; sourceTree = "<group>"; };
 		7B057B021A9FF8C200118317 /* Knife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Knife.m; sourceTree = "<group>"; };
+		7B3106AB1AF0974D00D64889 /* Onion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Onion.h; sourceTree = "<group>"; };
+		7B3106AC1AF0974D00D64889 /* Onion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onion.m; sourceTree = "<group>"; };
 		7BB6A1AE1AD86B1D001CF893 /* WinPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinPopup.h; sourceTree = "<group>"; };
 		7BB6A1AF1AD86B1D001CF893 /* WinPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinPopup.m; sourceTree = "<group>"; };
 		7BDE9F691A9AB7D600B87127 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
@@ -478,6 +481,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7B3106AB1AF0974D00D64889 /* Onion.h */,
+				7B3106AC1AF0974D00D64889 /* Onion.m */,
 				7B057B011A9FF8C200118317 /* Knife.h */,
 				7B057B021A9FF8C200118317 /* Knife.m */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
@@ -889,6 +894,7 @@
 				91D88DC61ADF95E5005D3DCD /* Time.m in Sources */,
 				91D88DC31ADF95D5005D3DCD /* Fury.m in Sources */,
 				7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */,
+				7B3106AD1AF0974D00D64889 /* Onion.m in Sources */,
 				7BE6C7021AA2617B008126CE /* ToxicIngredient.m in Sources */,
 				7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */,
 				91D88DC91ADF9600005D3DCD /* Antidote.m in Sources */,
