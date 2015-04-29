@@ -46,6 +46,13 @@
 		7B057B031A9FF8C300118317 /* Knife.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B057B021A9FF8C200118317 /* Knife.m */; };
 		7B3106AD1AF0974D00D64889 /* Onion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3106AC1AF0974D00D64889 /* Onion.m */; };
 		7BB6A1B01AD86B1D001CF893 /* WinPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB6A1AF1AD86B1D001CF893 /* WinPopup.m */; };
+		7BBB81711AF192E600B07009 /* Tomato.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB81701AF192E600B07009 /* Tomato.m */; };
+		7BBB81761AF192F100B07009 /* Spinach.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB81751AF192F100B07009 /* Spinach.m */; };
+		7BBB81791AF192FA00B07009 /* Pepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB81781AF192FA00B07009 /* Pepper.m */; };
+		7BBB817C1AF1930200B07009 /* Meat.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB817B1AF1930200B07009 /* Meat.m */; };
+		7BBB817F1AF1930A00B07009 /* Garlic.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB817E1AF1930A00B07009 /* Garlic.m */; };
+		7BBB81821AF1931500B07009 /* Cauliflower.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB81811AF1931500B07009 /* Cauliflower.m */; };
+		7BBB81851AF1932100B07009 /* Avocado.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBB81841AF1932100B07009 /* Avocado.m */; };
 		7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */; };
 		7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F721A9ACF5400B87127 /* Banana.m */; };
 		7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BDE9F751A9AD13300B87127 /* Strawberry.m */; };
@@ -191,6 +198,20 @@
 		7B3106AC1AF0974D00D64889 /* Onion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Onion.m; sourceTree = "<group>"; };
 		7BB6A1AE1AD86B1D001CF893 /* WinPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinPopup.h; sourceTree = "<group>"; };
 		7BB6A1AF1AD86B1D001CF893 /* WinPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinPopup.m; sourceTree = "<group>"; };
+		7BBB816F1AF192E600B07009 /* Tomato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tomato.h; sourceTree = "<group>"; };
+		7BBB81701AF192E600B07009 /* Tomato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tomato.m; sourceTree = "<group>"; };
+		7BBB81741AF192F100B07009 /* Spinach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spinach.h; sourceTree = "<group>"; };
+		7BBB81751AF192F100B07009 /* Spinach.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spinach.m; sourceTree = "<group>"; };
+		7BBB81771AF192FA00B07009 /* Pepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pepper.h; sourceTree = "<group>"; };
+		7BBB81781AF192FA00B07009 /* Pepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pepper.m; sourceTree = "<group>"; };
+		7BBB817A1AF1930200B07009 /* Meat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meat.h; sourceTree = "<group>"; };
+		7BBB817B1AF1930200B07009 /* Meat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Meat.m; sourceTree = "<group>"; };
+		7BBB817D1AF1930A00B07009 /* Garlic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Garlic.h; sourceTree = "<group>"; };
+		7BBB817E1AF1930A00B07009 /* Garlic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Garlic.m; sourceTree = "<group>"; };
+		7BBB81801AF1931500B07009 /* Cauliflower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cauliflower.h; sourceTree = "<group>"; };
+		7BBB81811AF1931500B07009 /* Cauliflower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cauliflower.m; sourceTree = "<group>"; };
+		7BBB81831AF1932100B07009 /* Avocado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Avocado.h; sourceTree = "<group>"; };
+		7BBB81841AF1932100B07009 /* Avocado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Avocado.m; sourceTree = "<group>"; };
 		7BDE9F691A9AB7D600B87127 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameplay.h; sourceTree = "<group>"; };
 		7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gameplay.m; sourceTree = "<group>"; };
 		7BDE9F711A9ACF5400B87127 /* Banana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banana.h; sourceTree = "<group>"; };
@@ -515,6 +536,20 @@
 				7BE6C7011AA2617B008126CE /* ToxicIngredient.m */,
 				7BE6C7031AA26384008126CE /* Ingredient.h */,
 				7BE6C7041AA26384008126CE /* Ingredient.m */,
+				7BBB816F1AF192E600B07009 /* Tomato.h */,
+				7BBB81701AF192E600B07009 /* Tomato.m */,
+				7BBB81741AF192F100B07009 /* Spinach.h */,
+				7BBB81751AF192F100B07009 /* Spinach.m */,
+				7BBB81771AF192FA00B07009 /* Pepper.h */,
+				7BBB81781AF192FA00B07009 /* Pepper.m */,
+				7BBB817A1AF1930200B07009 /* Meat.h */,
+				7BBB817B1AF1930200B07009 /* Meat.m */,
+				7BBB817D1AF1930A00B07009 /* Garlic.h */,
+				7BBB817E1AF1930A00B07009 /* Garlic.m */,
+				7BBB81801AF1931500B07009 /* Cauliflower.h */,
+				7BBB81811AF1931500B07009 /* Cauliflower.m */,
+				7BBB81831AF1932100B07009 /* Avocado.h */,
+				7BBB81841AF1932100B07009 /* Avocado.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -893,20 +928,27 @@
 			files = (
 				91D88DC61ADF95E5005D3DCD /* Time.m in Sources */,
 				91D88DC31ADF95D5005D3DCD /* Fury.m in Sources */,
+				7BBB81761AF192F100B07009 /* Spinach.m in Sources */,
 				7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */,
 				7B3106AD1AF0974D00D64889 /* Onion.m in Sources */,
+				7BBB817F1AF1930A00B07009 /* Garlic.m in Sources */,
 				7BE6C7021AA2617B008126CE /* ToxicIngredient.m in Sources */,
 				7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */,
+				7BBB81711AF192E600B07009 /* Tomato.m in Sources */,
 				91D88DC91ADF9600005D3DCD /* Antidote.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				7BBB81791AF192FA00B07009 /* Pepper.m in Sources */,
 				7BE6C7051AA26384008126CE /* Ingredient.m in Sources */,
+				7BBB81821AF1931500B07009 /* Cauliflower.m in Sources */,
 				7BB6A1B01AD86B1D001CF893 /* WinPopup.m in Sources */,
 				91D88DBE1ADF9578005D3DCD /* PowerUp.m in Sources */,
 				7BDE9F7F1A9B06FC00B87127 /* Sock.m in Sources */,
 				7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */,
+				7BBB817C1AF1930200B07009 /* Meat.m in Sources */,
 				7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */,
 				7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
+				7BBB81851AF1932100B07009 /* Avocado.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				7B057B031A9FF8C300118317 /* Knife.m in Sources */,
 			);

@@ -56,7 +56,7 @@
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
     _allIngredients = [[NSMutableArray alloc] init];
-    _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", @"Onion", nil];
+    _ingredientList = [[NSArray alloc] initWithObjects:@"Banana", @"Strawberry", @"Pineapple", @"Onion", @"Tomato", @"Spinach", @"Pepper", @"Meat", @"Garlic", @"Cauliflower", @"Avocado", nil];
     _toxicIngredientList = [[NSArray alloc] initWithObjects:@"Shoe", @"Sock", nil];
     _powerUpList = [[NSMutableArray alloc] initWithObjects:@"Time", @"Fury", @"Antidote", nil];
     _rotate = [CCActionRotateBy actionWithDuration:0.05f angle:-45];
