@@ -16,7 +16,12 @@
 #import "Ingredient.h"
 #import "ToxicIngredient.h"
 #import "PowerUp.h"
+#import "Level.h"
 #define CONVEYER_SCLAE 1.56
+
+static NSMutableArray *levelArray;
+static int levelNumber = 0;
+static int totalLevels;
 
 @implementation Gameplay {
     CCLabelTTF *_toxicityLabel;
@@ -36,6 +41,7 @@
     int _scoreDelta;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
+    NSTimeInterval _itemFrequency;
     NSMutableArray *_allIngredients;
     NSArray *_ingredientList;
     NSArray *_toxicIngredientList;
@@ -43,16 +49,69 @@
     CGSize _screenSize;
     SEL _incrementSelector;
     SEL _furySelector;
+    Level *_currLevel;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        if (levelArray == NULL) {
+            Level *level;
+            levelArray = [[NSMutableArray alloc] init];
+            // Level 1
+            level = [[Level alloc] init];
+            [level setSpeed:1];
+            [level setTimer:120];
+            [level setScoreDelta:20];
+            [level setForce:10000];
+            [level setItemFrequency:1];
+            [levelArray addObject:level];
+
+            // Level 2
+            level = [[Level alloc] init];
+            [level setSpeed:3];
+            [level setTimer:90];
+            [level setScoreDelta:15];
+            [level setForce:20000];
+            [level setItemFrequency:0.6];
+            [levelArray addObject:level];
+
+            // Level 3
+            level = [[Level alloc] init];
+            [level setSpeed:5];
+            [level setTimer:60];
+            [level setScoreDelta:10];
+            [level setForce:30000];
+            [level setItemFrequency:0.4];
+            [levelArray addObject:level];
+
+            // Level 4
+            level = [[Level alloc] init];
+            [level setSpeed:8];
+            [level setTimer:15];
+            [level setScoreDelta:5];
+            [level setForce:50000];
+            [level setItemFrequency:0.2];
+            [levelArray addObject:level];
+
+            totalLevels = (int) [levelArray count];
+        }
+    }
+
+    return self;
 }
 
 - (void)didLoadFromCCB {
-    _timer = 100;
-    _speed = 3;
-    _force = 20000;
-    _timeInterval = 0.0f;
+    _currLevel = [levelArray objectAtIndex:levelNumber];
+    _timer = [_currLevel timer];
+    _speed = [_currLevel speed];
+    _force = [_currLevel force];
+    _itemFrequency = [_currLevel itemFrequency];
+    _scoreDelta = [_currLevel scoreDelta];
     _toxicity = 0;
     _completeness = 0;
-    _scoreDelta = 10;
+    _timeInterval = 0.0f;
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
     _allIngredients = [[NSMutableArray alloc] init];
@@ -86,6 +145,22 @@
     [self addChild:popup];
 }
 
+- (void)loadNextLevel {
+    levelNumber++;
+
+    CCScene *nextScene = nil;
+
+    if (levelNumber + 1 <= totalLevels) {
+        nextScene = [CCBReader loadAsScene:@"Gameplay"];
+    } else {
+        levelNumber = 0;
+        nextScene = [CCBReader loadAsScene:@"MainScene"];
+    }
+
+    CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+    [[CCDirector sharedDirector] presentScene:nextScene withTransition:transition];
+}
+
 - (void)update:(CCTime)delta {
     static int flag = 1;
     _timeInterval += delta;
@@ -97,7 +172,7 @@
         [self gameOver];
     }
 
-    if (_timeInterval > 0.5f) {
+    if (_timeInterval > _itemFrequency) {
         [_allIngredients addObject:[self launchIngredient]];
         _timeInterval = 0.0f;
     }
@@ -173,7 +248,7 @@
             [nodeA removeFromParent];
             _toxicity += _scoreDelta;
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
-            if (_toxicity == 100) {
+            if (_toxicity >= 100) {
                 [self gameOver];
             }
         } key:nodeA];
@@ -192,7 +267,7 @@
             [nodeA removeFromParent];
             _completeness += _scoreDelta;
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
-            if (_completeness == 100) {
+            if (_completeness >= 100) {
                 [self gameOver];
             }
         } key:nodeA];
