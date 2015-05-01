@@ -27,6 +27,7 @@ static int totalLevels;
     CCLabelTTF *_toxicityLabel;
     CCLabelTTF *_completenessLabel;
     CCLabelTTF *_timerLabel;
+    CCLabelTTF *_levelNumberLabel;
     CCNode *_conveyer1;
     CCNode *_conveyer2;
     CCSprite *_knife;
@@ -132,6 +133,7 @@ static int totalLevels;
     [self schedule:_incrementSelector interval:1.0];
     _screenSize = [[CCDirector sharedDirector] viewSize];
     [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
+    [_levelNumberLabel setString:[NSString stringWithFormat:@"%d", (levelNumber + 1)]];
 }
 
 - (void)increment {
