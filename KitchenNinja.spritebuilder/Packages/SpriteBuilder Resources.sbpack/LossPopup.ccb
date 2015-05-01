@@ -122,8 +122,8 @@
 						<string>Color3</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
 							<real>1</real>
+							<real>0.0</real>
 							<real>0.0</real>
 							<real>1</real>
 						</array>
@@ -137,8 +137,6 @@
 						<real>1</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -210,7 +208,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>You Win</string>
+							<string>Game Over</string>
 							<false/>
 						</array>
 					</dict>
@@ -417,7 +415,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string>loadNextLevel</string>
+							<string>restartLevel</string>
 							<integer>2</integer>
 						</array>
 					</dict>
@@ -462,7 +460,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Next Level</string>
+							<string>Restart</string>
 							<false/>
 						</array>
 					</dict>
@@ -672,10 +670,12 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>WinPopup</string>
+		<string>LossPopup</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>

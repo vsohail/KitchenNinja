@@ -9,6 +9,7 @@
 #import "Gameplay.h"
 #import "Knife.h"
 #import "WinPopup.h"
+#import "LossPopup.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "Time.h"
 #import "Fury.h"
@@ -144,18 +145,27 @@ static int totalLevels;
     [_powerUpList addObject:@"Fury"];
 }
 
-- (void)gameOver {
+- (void)gameOver:(BOOL)isWin {
     [self setPaused:TRUE];
-
-    WinPopup *popup = (WinPopup *)[CCBReader load:@"WinPopup" owner:self];
+    CCNode *popup;
+    if (isWin) {
+        popup = (WinPopup *)[CCBReader load:@"WinPopup" owner:self];
+    } else {
+        popup = (LossPopup *)[CCBReader load:@"LossPopup" owner:self];
+    }
     popup.positionType = CCPositionTypeNormalized;
     popup.position = ccp(0.5, 0.5);
     [self addChild:popup];
 }
 
+- (void)restartLevel {
+    CCScene *restartScene = [CCBReader loadAsScene:@"Gameplay"];
+    CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+    [[CCDirector sharedDirector] presentScene:restartScene withTransition:transition];
+}
+
 - (void)loadNextLevel {
     levelNumber++;
-
     CCScene *nextScene = nil;
 
     if (levelNumber + 1 <= totalLevels) {
@@ -177,7 +187,7 @@ static int totalLevels;
         [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
         [self unschedule:_incrementSelector];
         flag = 0;
-        [self gameOver];
+        [self gameOver:FALSE];
     }
 
     if (_timeInterval > _itemFrequency) {
@@ -260,7 +270,7 @@ static int totalLevels;
             }
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
             if (_toxicity >= 100) {
-                [self gameOver];
+                [self gameOver:FALSE];
             }
         } key:nodeA];
     }
@@ -282,7 +292,7 @@ static int totalLevels;
             }
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
             if (_completeness >= 100) {
-                [self gameOver];
+                [self gameOver:TRUE];
             }
         } key:nodeA];
     }
