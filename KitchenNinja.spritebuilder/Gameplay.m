@@ -38,7 +38,8 @@ static int totalLevels;
     int _completeness;
     int _timer;
     int _fury;
-    int _scoreDelta;
+    int _completenessDelta;
+    int _toxicityDelta;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSTimeInterval _itemFrequency;
@@ -63,7 +64,8 @@ static int totalLevels;
             level = [[Level alloc] init];
             [level setSpeed:1];
             [level setTimer:120];
-            [level setScoreDelta:20];
+            [level setCompletenessDelta:20];
+            [level setToxicityDelta:5];
             [level setForce:10000];
             [level setItemFrequency:1];
             [levelArray addObject:level];
@@ -72,7 +74,8 @@ static int totalLevels;
             level = [[Level alloc] init];
             [level setSpeed:3];
             [level setTimer:90];
-            [level setScoreDelta:15];
+            [level setCompletenessDelta:15];
+            [level setToxicityDelta:10];
             [level setForce:20000];
             [level setItemFrequency:0.6];
             [levelArray addObject:level];
@@ -81,7 +84,8 @@ static int totalLevels;
             level = [[Level alloc] init];
             [level setSpeed:5];
             [level setTimer:60];
-            [level setScoreDelta:10];
+            [level setCompletenessDelta:10];
+            [level setToxicityDelta:15];
             [level setForce:30000];
             [level setItemFrequency:0.4];
             [levelArray addObject:level];
@@ -90,7 +94,8 @@ static int totalLevels;
             level = [[Level alloc] init];
             [level setSpeed:8];
             [level setTimer:15];
-            [level setScoreDelta:5];
+            [level setCompletenessDelta:5];
+            [level setToxicityDelta:20];
             [level setForce:50000];
             [level setItemFrequency:0.2];
             [levelArray addObject:level];
@@ -108,7 +113,8 @@ static int totalLevels;
     _speed = [_currLevel speed];
     _force = [_currLevel force];
     _itemFrequency = [_currLevel itemFrequency];
-    _scoreDelta = [_currLevel scoreDelta];
+    _completenessDelta = [_currLevel completenessDelta];
+    _toxicityDelta = [_currLevel toxicityDelta];
     _toxicity = 0;
     _completeness = 0;
     _timeInterval = 0.0f;
@@ -216,11 +222,11 @@ static int totalLevels;
 }
 
 - (CCNode *)launchIngredient {
-    int powerUp = arc4random() % 5;
-    int toxic = arc4random() % 2;
+    int powerUp = arc4random() % 10;
+    int toxic = arc4random() % 3;
     CCNode* ingredient;
-    if (powerUp > 0) {
-        if (toxic) {
+    if (powerUp > 2) {
+        if (toxic == 2) {
             ingredient = [CCBReader load:_toxicIngredientList[arc4random() % [_toxicIngredientList count]]];
         } else {
             ingredient = [CCBReader load:_ingredientList[arc4random() % [_ingredientList count]]];
@@ -246,7 +252,10 @@ static int totalLevels;
         }
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            _toxicity += _scoreDelta;
+            _toxicity += _toxicityDelta;
+            if (_toxicity > 100) {
+                _toxicity = 100;
+            }
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
             if (_toxicity >= 100) {
                 [self gameOver];
@@ -265,7 +274,10 @@ static int totalLevels;
     if ([nodeB class] == [Knife class]) {
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
-            _completeness += _scoreDelta;
+            _completeness += _completenessDelta;
+            if (_completeness > 100) {
+                _completeness = 100;
+            }
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
             if (_completeness >= 100) {
                 [self gameOver];
@@ -305,7 +317,11 @@ static int totalLevels;
 
 -(void)antidotePowerUpAction {
     if (_toxicity != 0) {
-        _toxicity -= _scoreDelta;
+        // Antidote effectiveness decreases with level advancement
+        _toxicity -= _completenessDelta;
+        if (_toxicity < 0) {
+            _toxicity = 0;
+        }
         [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
     }
 

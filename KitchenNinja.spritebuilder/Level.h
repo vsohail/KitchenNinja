@@ -14,6 +14,7 @@
 @property (nonatomic) int timer;
 @property (nonatomic) int force;
 @property (nonatomic) int speed;
-@property (nonatomic) int scoreDelta;
+@property (nonatomic) int completenessDelta;
+@property (nonatomic) int toxicityDelta;
 
 @end
