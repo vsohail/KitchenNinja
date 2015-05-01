@@ -8,6 +8,13 @@
 
 #import "WinPopup.h"
 
-@implementation WinPopup
+@implementation WinPopup {
+    CCLabelTTF *_gameScoreLabel;
+}
+
+
+- (void) setScore:(int)score {
+   [_gameScoreLabel setString:[NSString stringWithFormat:@"%d", score]];
+}
 
 @end

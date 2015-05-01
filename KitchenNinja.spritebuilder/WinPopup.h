@@ -10,4 +10,6 @@
 
 @interface WinPopup : CCNode
 
+- (void) setScore:(int)score;
+
 @end

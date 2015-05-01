@@ -29,6 +29,7 @@ static int totalLevels;
     CCLabelTTF *_completenessLabel;
     CCLabelTTF *_timerLabel;
     CCLabelTTF *_levelNumberLabel;
+    CCLabelTTF *_multiplierLabel;
     CCNode *_conveyer1;
     CCNode *_conveyer2;
     CCSprite *_knife;
@@ -42,6 +43,7 @@ static int totalLevels;
     int _fury;
     int _completenessDelta;
     int _toxicityDelta;
+    int _multiplier;
     CCPhysicsNode *_physicsNode;
     NSTimeInterval _timeInterval;
     NSTimeInterval _itemFrequency;
@@ -119,6 +121,7 @@ static int totalLevels;
     _toxicityDelta = [_currLevel toxicityDelta];
     _toxicity = 0;
     _completeness = 0;
+    _multiplier = 0;
     _timeInterval = 0.0f;
     _conveyers = @[_conveyer1, _conveyer2];
     self.userInteractionEnabled = TRUE;
@@ -150,12 +153,29 @@ static int totalLevels;
     CCNode *popup;
     if (isWin) {
         popup = (WinPopup *)[CCBReader load:@"WinPopup" owner:self];
+        [(WinPopup *)popup setScore:[self calculateScore]];
     } else {
         popup = (LossPopup *)[CCBReader load:@"LossPopup" owner:self];
+        if (_toxicity >= 100) {
+            [(LossPopup *)popup setReason:@"Too Toxic!"];
+        } else {
+            [(LossPopup *)popup setReason:@"Time is Up!"];
+        }
     }
     popup.positionType = CCPositionTypeNormalized;
-    popup.position = ccp(0.5, 0.5);
+    popup.position = ccp(0.45, 0.5);
     [self addChild:popup];
+}
+
+- (int) calculateScore {
+    int score = 0;
+    score = (100 - _toxicity);
+    if (score < 50) {
+        return score * (_multiplier / 2);
+    }
+    else {
+        return score * (_multiplier);
+    }
 }
 
 - (void)restartLevel {
@@ -265,10 +285,12 @@ static int totalLevels;
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
             _toxicity += _toxicityDelta;
+            _multiplier = 0;
             if (_toxicity > 100) {
                 _toxicity = 100;
             }
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
+            [_multiplierLabel setString:[NSString stringWithFormat:@"%d", _multiplier]];
             if (_toxicity >= 100) {
                 [self gameOver:FALSE];
             }
@@ -287,10 +309,12 @@ static int totalLevels;
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
             _completeness += _completenessDelta;
+            _multiplier ++;
             if (_completeness > 100) {
                 _completeness = 100;
             }
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
+            [_multiplierLabel setString:[NSString stringWithFormat:@"%d", _multiplier]];
             if (_completeness >= 100) {
                 [self gameOver:TRUE];
             }

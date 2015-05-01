@@ -79,10 +79,7 @@
 			<true/>
 		</dict>
 		<key>GameAssets</key>
-		<dict>
-			<key>isDirty</key>
-			<true/>
-		</dict>
+		<dict/>
 		<key>GameAssets/walter_suit.png</key>
 		<dict>
 			<key>scaleFrom</key>
