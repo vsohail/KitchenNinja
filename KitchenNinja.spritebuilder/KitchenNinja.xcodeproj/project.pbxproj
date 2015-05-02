@@ -65,6 +65,10 @@
 		8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8392007918EE8E3300B6C429 /* GLKit.framework */; };
 		9102B4E91AF419F90073249E /* LossPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4E81AF419F90073249E /* LossPopup.m */; };
 		9102B4F41AF436790073249E /* TutorialPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4F31AF436790073249E /* TutorialPopup.m */; };
+		9102B4F71AF4A8CC0073249E /* Cucumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4F61AF4A8CC0073249E /* Cucumber.m */; };
+		9102B4FA1AF4A9130073249E /* Brocoli.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4F91AF4A9130073249E /* Brocoli.m */; };
+		9102B4FD1AF4B9330073249E /* Toxic.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4FC1AF4B9330073249E /* Toxic.m */; };
+		9102B5001AF4C2380073249E /* RottenApple.m in Sources */ = {isa = PBXBuildFile; fileRef = 9102B4FF1AF4C2380073249E /* RottenApple.m */; };
 		91D88DBE1ADF9578005D3DCD /* PowerUp.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DBD1ADF9578005D3DCD /* PowerUp.m */; };
 		91D88DC31ADF95D5005D3DCD /* Fury.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DC21ADF95D5005D3DCD /* Fury.m */; };
 		91D88DC61ADF95E5005D3DCD /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D88DC51ADF95E5005D3DCD /* Time.m */; };
@@ -239,6 +243,14 @@
 		9102B4E81AF419F90073249E /* LossPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LossPopup.m; sourceTree = "<group>"; };
 		9102B4F21AF436790073249E /* TutorialPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialPopup.h; sourceTree = "<group>"; };
 		9102B4F31AF436790073249E /* TutorialPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialPopup.m; sourceTree = "<group>"; };
+		9102B4F51AF4A8CB0073249E /* Cucumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cucumber.h; sourceTree = "<group>"; };
+		9102B4F61AF4A8CC0073249E /* Cucumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cucumber.m; sourceTree = "<group>"; };
+		9102B4F81AF4A9130073249E /* Brocoli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brocoli.h; sourceTree = "<group>"; };
+		9102B4F91AF4A9130073249E /* Brocoli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brocoli.m; sourceTree = "<group>"; };
+		9102B4FB1AF4B9330073249E /* Toxic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toxic.h; sourceTree = "<group>"; };
+		9102B4FC1AF4B9330073249E /* Toxic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toxic.m; sourceTree = "<group>"; };
+		9102B4FE1AF4C2380073249E /* RottenApple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RottenApple.h; sourceTree = "<group>"; };
+		9102B4FF1AF4C2380073249E /* RottenApple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RottenApple.m; sourceTree = "<group>"; };
 		91D88DBC1ADF9578005D3DCD /* PowerUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUp.h; sourceTree = "<group>"; };
 		91D88DBD1ADF9578005D3DCD /* PowerUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerUp.m; sourceTree = "<group>"; };
 		91D88DC11ADF95D5005D3DCD /* Fury.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fury.h; sourceTree = "<group>"; };
@@ -521,6 +533,14 @@
 				D352B48019EC608A00829775 /* MetalShaders */,
 				7BDE9F691A9AB7D600B87127 /* Gameplay.h */,
 				7BDE9F6A1A9AB7D600B87127 /* Gameplay.m */,
+				9102B4FE1AF4C2380073249E /* RottenApple.h */,
+				9102B4FF1AF4C2380073249E /* RottenApple.m */,
+				9102B4FB1AF4B9330073249E /* Toxic.h */,
+				9102B4FC1AF4B9330073249E /* Toxic.m */,
+				9102B4F51AF4A8CB0073249E /* Cucumber.h */,
+				9102B4F81AF4A9130073249E /* Brocoli.h */,
+				9102B4F91AF4A9130073249E /* Brocoli.m */,
+				9102B4F61AF4A8CC0073249E /* Cucumber.m */,
 				9102B4F21AF436790073249E /* TutorialPopup.h */,
 				9102B4F31AF436790073249E /* TutorialPopup.m */,
 				9102B4E71AF419F90073249E /* LossPopup.h */,
@@ -947,6 +967,7 @@
 				9102B4E91AF419F90073249E /* LossPopup.m in Sources */,
 				7BDE9F7C1A9B06F300B87127 /* Shoe.m in Sources */,
 				7B3106AD1AF0974D00D64889 /* Onion.m in Sources */,
+				9102B4FA1AF4A9130073249E /* Brocoli.m in Sources */,
 				7BBB817F1AF1930A00B07009 /* Garlic.m in Sources */,
 				7BE6C7021AA2617B008126CE /* ToxicIngredient.m in Sources */,
 				7BDE9F791A9AD14700B87127 /* Pineapple.m in Sources */,
@@ -954,6 +975,7 @@
 				91D88DC91ADF9600005D3DCD /* Antidote.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7BBB81791AF192FA00B07009 /* Pepper.m in Sources */,
+				9102B4F71AF4A8CC0073249E /* Cucumber.m in Sources */,
 				7BE6C7051AA26384008126CE /* Ingredient.m in Sources */,
 				7BBB81821AF1931500B07009 /* Cauliflower.m in Sources */,
 				7BB6A1B01AD86B1D001CF893 /* WinPopup.m in Sources */,
@@ -961,9 +983,11 @@
 				7BDE9F7F1A9B06FC00B87127 /* Sock.m in Sources */,
 				9102B4F41AF436790073249E /* TutorialPopup.m in Sources */,
 				7BDE9F6B1A9AB7D600B87127 /* Gameplay.m in Sources */,
+				9102B5001AF4C2380073249E /* RottenApple.m in Sources */,
 				7BBB817C1AF1930200B07009 /* Meat.m in Sources */,
 				7BDE9F761A9AD13300B87127 /* Strawberry.m in Sources */,
 				7BDE9F731A9ACF5400B87127 /* Banana.m in Sources */,
+				9102B4FD1AF4B9330073249E /* Toxic.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				7BBB81851AF1932100B07009 /* Avocado.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,

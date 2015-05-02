@@ -74,8 +74,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>32</real>
-					<real>32</real>
+					<real>18.117218017578125</real>
+					<real>16.269561767578125</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -137,7 +137,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>GameAssets/fury.png</string>
+					<string>GameAssets/rsz_fury.png</string>
 				</array>
 			</dict>
 			<dict>

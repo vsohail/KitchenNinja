@@ -74,8 +74,8 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>29</real>
-					<real>31</real>
+					<real>18.984405517578125</real>
+					<real>19.027374267578125</real>
 				</array>
 			</array>
 			<key>polygons</key>
@@ -137,7 +137,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>GameAssets/shoe_art.png</string>
+					<string>GameAssets/rsz_shoe_art.png</string>
 				</array>
 			</dict>
 			<dict>
