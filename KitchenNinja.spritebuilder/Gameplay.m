@@ -10,6 +10,7 @@
 #import "Knife.h"
 #import "WinPopup.h"
 #import "LossPopup.h"
+#import "TutorialPopup.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "Time.h"
 #import "Fury.h"
@@ -23,6 +24,18 @@
 static NSMutableArray *levelArray;
 static int levelNumber = 0;
 static int totalLevels;
+
+static int tutorialBasicNonToxic = 0;
+static int tutorialBasicToxic = 0;
+static int tutorialPowerUpFury = 0;
+static int tutorialPowerUpTimer = 0;
+static int tutorialPowerUpAntidote = 0;
+
+static NSString *tutorialBasicNonToxicTip;
+static NSString *tutorialBasicToxicTip;
+static NSString *tutorialPowerUpFuryTip;
+static NSString *tutorialPowerUpTimerTip;
+static NSString *tutorialPowerUpAntidoteTip;
 
 @implementation Gameplay {
     CCLabelTTF *_toxicityLabel;
@@ -55,13 +68,21 @@ static int totalLevels;
     SEL _incrementSelector;
     SEL _furySelector;
     Level *_currLevel;
+    TutorialPopup *_tutorialPopup;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        if (levelArray == NULL) {
+        static dispatch_once_t once;
+        dispatch_once(&once, ^{
+            tutorialBasicNonToxicTip = [NSString stringWithFormat:@"%@\n%@", @"Chop Non-Toxic ingredients", @"to increase completeness to 100%"];
+            tutorialBasicToxicTip = [NSString stringWithFormat:@"%@\n%@", @"Avoid chopping Toxic ingredients as", @"this increases toxicity"];
+            tutorialPowerUpFuryTip = [NSString stringWithFormat:@"%@\n%@", @"Fury: Toxicity doesnt increase", @"for the next 5 seconds"];
+            tutorialPowerUpTimerTip = @"Timer: Get a time boost";
+            tutorialPowerUpAntidoteTip = @"Antidote: Decreases Toxicity";
+
             Level *level;
             levelArray = [[NSMutableArray alloc] init];
             // Level 1
@@ -105,7 +126,7 @@ static int totalLevels;
             [levelArray addObject:level];
 
             totalLevels = (int) [levelArray count];
-        }
+        });
     }
 
     return self;
@@ -138,6 +159,7 @@ static int totalLevels;
     _screenSize = [[CCDirector sharedDirector] viewSize];
     [_timerLabel setString:[NSString stringWithFormat:@"%d", _timer]];
     [_levelNumberLabel setString:[NSString stringWithFormat:@"%d", (levelNumber + 1)]];
+    _tutorialPopup = (TutorialPopup *)[CCBReader load:@"TutorialPopup" owner:self];
 }
 
 - (void)increment {
@@ -165,6 +187,20 @@ static int totalLevels;
     popup.positionType = CCPositionTypeNormalized;
     popup.position = ccp(0.45, 0.5);
     [self addChild:popup];
+}
+
+- (void)showTutorialWithTip:(NSString *)tip {
+    [self setPaused:TRUE];
+
+    [_tutorialPopup setTutorialMessage:tip];
+    _tutorialPopup.positionType = CCPositionTypeNormalized;
+    _tutorialPopup.position = ccp(0.3, 0.3);
+    [self addChild:_tutorialPopup];
+}
+
+- (void) continueLevel {
+    [self setPaused:FALSE];
+    [self removeChild:_tutorialPopup];
 }
 
 - (int) calculateScore {
@@ -280,6 +316,11 @@ static int totalLevels;
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair toxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     if ([nodeB class] == [Knife class]) {
         if ([_powerUpList containsObject:@"Fury"] == NO) {
+            [nodeA removeFromParent];
+            if (!tutorialBasicToxic) {
+                tutorialBasicToxic = 1;
+                [self showTutorialWithTip:tutorialBasicToxicTip];
+            }
             return;
         }
         [[_physicsNode space] addPostStepBlock:^{
@@ -291,6 +332,10 @@ static int totalLevels;
             }
             [_toxicityLabel setString:[NSString stringWithFormat:@"%d", _toxicity]];
             [_multiplierLabel setString:[NSString stringWithFormat:@"%d", _multiplier]];
+            if (!tutorialBasicToxic) {
+                tutorialBasicToxic = 1;
+                [self showTutorialWithTip:tutorialBasicToxicTip];
+            }
             if (_toxicity >= 100) {
                 [self gameOver:FALSE];
             }
@@ -315,6 +360,10 @@ static int totalLevels;
             }
             [_completenessLabel setString:[NSString stringWithFormat:@"%d", _completeness]];
             [_multiplierLabel setString:[NSString stringWithFormat:@"%d", _multiplier]];
+            if (!tutorialBasicNonToxic) {
+                tutorialBasicNonToxic = 1;
+                [self showTutorialWithTip:tutorialBasicNonToxicTip];
+            }
             if (_completeness >= 100) {
                 [self gameOver:TRUE];
             }
@@ -331,10 +380,22 @@ static int totalLevels;
     if ([nodeB class] == [Knife class]) {
         [[_physicsNode space] addPostStepBlock:^{
             if ([nodeA class] == [Fury class]) {
+                if (!tutorialPowerUpFury) {
+                    tutorialPowerUpFury = 1;
+                    [self showTutorialWithTip:tutorialPowerUpFuryTip];
+                }
                 [self furyPowerUpAction];
             } else if ([nodeA class] == [Antidote class]) {
+                if (!tutorialPowerUpAntidote) {
+                    tutorialPowerUpAntidote = 1;
+                    [self showTutorialWithTip:tutorialPowerUpAntidoteTip];
+                }
                 [self antidotePowerUpAction];
             } else if ([nodeA class] == [Time class]) {
+                if (!tutorialPowerUpTimer) {
+                    tutorialPowerUpTimer = 1;
+                    [self showTutorialWithTip:tutorialPowerUpTimerTip];
+                }
                 [self timePowerUpAction];
             }
             [nodeA removeFromParent];
