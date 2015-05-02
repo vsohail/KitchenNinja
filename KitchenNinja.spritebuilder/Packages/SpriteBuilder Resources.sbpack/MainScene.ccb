@@ -206,8 +206,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>1.423303484916687</real>
+							<real>1.3741399049758911</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -230,8 +230,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>77</real>
+							<real>25</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -243,8 +243,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
+							<real>75</real>
+							<real>30</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -264,7 +264,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Play</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -276,7 +276,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>GameAssets/button-play-now.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -287,7 +287,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>GameAssets/button-play-now.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -311,7 +311,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>GameAssets/button-play-now.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -330,7 +330,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>GameAssets/button-play-now.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -474,6 +474,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -681,8 +683,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
