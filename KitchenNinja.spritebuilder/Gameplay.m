@@ -315,6 +315,14 @@ static NSString *tutorialPowerUpAntidoteTip;
 
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair toxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     if ([nodeB class] == [Knife class]) {
+        // load particle effect
+        CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"ChopEffect"];
+        // make the particle effect clean itself up, once it is completed
+        explosion.autoRemoveOnFinish = TRUE;
+        // place the particle effect on the seals position
+        explosion.position = nodeA.position;
+        // add the particle effect to the same node the seal is on
+        [nodeA.parent addChild:explosion];
         if ([_powerUpList containsObject:@"Fury"] == NO) {
             [nodeA removeFromParent];
             if (!tutorialBasicToxic) {
@@ -351,6 +359,14 @@ static NSString *tutorialPowerUpAntidoteTip;
 
 -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair nonToxic:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
     if ([nodeB class] == [Knife class]) {
+        // load particle effect
+        CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"ChopEffect"];
+        // make the particle effect clean itself up, once it is completed
+        explosion.autoRemoveOnFinish = TRUE;
+        // place the particle effect on the seals position
+        explosion.position = nodeA.position;
+        // add the particle effect to the same node the seal is on
+        [nodeA.parent addChild:explosion];
         [[_physicsNode space] addPostStepBlock:^{
             [nodeA removeFromParent];
             _completeness += _completenessDelta;
